@@ -41,14 +41,14 @@ token_cp = 'your cp token'
 
 @bot.on_message(filters.command(["start"]) & filters.user(owner_id))
 async def account_login(bot: Client, m: Message):
-    await m.reply_text(f"**Hello Bruh** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n>>I am TXT file Downloader Bot.\n>>Send me /txt Command And Follow Steps\nIf You Want To Stop Me Just Send /stop to stop me 😎")
+    await m.reply_text(f"**Hello Bruh** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n>>I am TXT file Downloader Bot.\n>>Send me Command And Follow Steps\nIf You Want To Stop Me Just Send /stop to stop me 😎")
 
-@bot.on_message(filters.command("txt"))
+@bot.on_message(filters.command("stop"))
 async def restart_handler(_, m):
     await m.reply_text("🚦**STOPPED**🚦", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
-@bot.on_message(filters.command(["txt"]))
+@bot.on_message(filters.command(["ipl"]))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text("**Please Send TXT file for download**")
     input: Message = await bot.listen(editable.chat.id)
@@ -184,7 +184,7 @@ async def account_login(bot: Client, m: Message):
                 url = f"{api_url}pw-dl?url={url}&token={token}&authorization={api_token}&q={raw_text2}"
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
-            name = f'{name1[:60]} 𝐃𝐈𝐋𝐉𝐀𝐋𝐄 ❤️'
+            name = f'{name1[:60]}'
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
@@ -197,10 +197,10 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:
-                cc = f'**╭── ⋆⋅☆⋅⋆ ──╮**\n✦ **{str(count).zfill(3)}** ✦\n**╰── ⋆⋅☆⋅⋆ ──╯**\n\n🎭 **Title:** `{name1} 😎 Admin:)™.mkv`\n🖥️ **Resolution:** [{res}]\n\n📘 **Course:** `{b_name}`\n\n🚀 **Extracted By:** `{MR}`'
-                cc1 = f'**╭── ⋆⋅☆⋅⋆ ──╮**\n✦ **{str(count).zfill(3)}** ✦\n**╰── ⋆⋅☆⋅⋆ ──╯**\n\n🎭 **Title:** `{name1} 😎 Admin:)™.pdf`\n\n📘 **Course:** `{b_name}`\n\n🚀 **Extracted By:** `{MR}`'
-                cc2 = f'**╭── ⋆⋅☆⋅⋆ ──╮**\n✦ **{str(count).zfill(3)}** ✦\n**╰── ⋆⋅☆⋅⋆ ──╯**\n\n🎭 **Title:** `{name1} 😎 Admin:)™.jpg`\n\n📘 **Course:** `{b_name}`\n\n🚀 **Extracted By:** `{MR}`'
-                ccyt = f'**╭── ⋆⋅☆⋅⋆ ──╮**\n✦ **{str(count).zfill(3)}** ✦\n**╰── ⋆⋅☆⋅⋆ ──╯**\n\n🎭 **Title:** `{name1} 😎 Admin:)™.mkv`\n🎬 **Video Link:** {url}\n🖥️ **Resolution:** [{res}]\n\n📘 **Course:** `{b_name}`\n\n🚀 **Extracted By:** `{MR}`'
+                cc = f'**╭── ⋆⋅☆⋅⋆ ──╮**\n✦ **{str(count).zfill(3)}** ✦\n**╰── ⋆⋅☆⋅⋆ ──╯**\n\n🎭 **Title:** `{name1} 😎 Admin:)™.mkv`\n🖥️ **Resolution:** [{res}]\n\n📘 **Course:** `{b_name}`\n\n🚀 **Extracted By :** `{MR}`'
+                cc1 = f'**╭── ⋆⋅☆⋅⋆ ──╮**\n✦ **{str(count).zfill(3)}** ✦\n**╰── ⋆⋅☆⋅⋆ ──╯**\n\n🎭 **Title:** `{name1} 😎 Admin:)™.pdf`\n\n📘 **Course:** `{b_name}`\n\n🚀 **Extracted By :** `{MR}`'
+                cc2 = f'**╭── ⋆⋅☆⋅⋆ ──╮**\n✦ **{str(count).zfill(3)}** ✦\n**╰── ⋆⋅☆⋅⋆ ──╯**\n\n🎭 **Title:** `{name1} 😎 Admin:)™.jpg`\n\n📘 **Course:** `{b_name}`\n\n🚀 **Extracted By :** `{MR}`'
+                ccyt = f'**╭── ⋆⋅☆⋅⋆ ──╮**\n✦ **{str(count).zfill(3)}** ✦\n**╰── ⋆⋅☆⋅⋆ ──╯**\n\n🎭 **Title:** `{name1} 😎 Admin:)™.mkv`\n🎬 **Video Link:** {url}\n🖥️ **Resolution:** [{res}]\n\n📘 **Course:** `{b_name}`\n\n🚀 **Extracted By :** `{MR}`'
 
                 if "drive" in url:
                     try:
@@ -271,7 +271,7 @@ async def account_login(bot: Client, m: Message):
                         continue
 
                 elif 'encrypted.m' in url:
-                    Show = f"✈️ 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 ✈️\n\n┠ 📈 Total Links = {len(links)}\n┠ 💥 Currently On = {str(count).zfill(3)}\n\n**📩 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐈𝐍𝐆 📩**\n\n**🧚🏻‍♂️ Title** : {name}\n├── **Extention** : {MR}\n├── **Resolution** : {raw_text2}\n├── **Url** : `Kya karega URL dekh ke  BSDK 👻👻`\n├── **Thumbnail** : `{input6.text}`\n├── **Bot Made By** : "
+                    Show = f"✈️ 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 ✈️\n\n┠ 📈 Total Links = {len(links)}\n┠ 💥 Currently On = {str(count).zfill(3)}\n\n**📩 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐈𝐍𝐆 📩**\n\n**🧚🏻‍♂️ Title** : {name}\n├── **Extention** : {MR}\n├── **Resolution** : {raw_text2}\n├── **Url** : `Kya karega URL dekh ke 👻👻`\n├── **Thumbnail** : `{input6.text}`\n├── **Bot Made By** : "
                     prog = await m.reply_text(Show)
                     res_file = await helper.download_and_decrypt_video(url, cmd, name, appxkey)
                     filename = res_file
@@ -282,7 +282,7 @@ async def account_login(bot: Client, m: Message):
                     continue
 
                 elif 'drmcdni' in url or 'drm/wv' in url:
-                    Show = f"𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 ✈️\n\n┠ 📈 Total Links = {len(links)}\n┠ 💥 Currently On = {str(count).zfill(3)}\n\n**📩 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐈𝐍𝐆 📩**\n\n**🧚🏻‍♂️ Title** : {name}\n├── **Extention** : {MR}\n├── **Resolution** : {raw_text2}\n├── **Url** : `Kya karega URL dekh ke  BSDK 👻👻`\n├── **Thumbnail** : `{input6.text}`\n├── **Bot Made By** : "
+                    Show = f"𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 ✈️\n\n┠ 📈 Total Links = {len(links)}\n┠ 💥 Currently On = {str(count).zfill(3)}\n\n**📩 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐈𝐍𝐆 📩**\n\n**🧚🏻‍♂️ Title** : {name}\n├── **Extention** : {MR}\n├── **Resolution** : {raw_text2}\n├── **Url** : `Kya karega URL dekh ke 👻👻`\n├── **Thumbnail** : `{input6.text}`\n├── **Bot Made By** : "
                     prog = await m.reply_text(Show)
                     res_file = await helper.decrypt_and_merge_video(mpd, keys_string, path, name, raw_text2)
                     filename = res_file
@@ -293,7 +293,7 @@ async def account_login(bot: Client, m: Message):
                     continue
 
                 else:
-                    Show = f"✈️ 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 ✈️\n\n┠ 📈 Total Links = {len(links)}\n┠ 💥 Currently On = {str(count).zfill(3)}\n\n**📩 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐈𝐍𝐆 📩**\n\n**🧚🏻‍♂️ Title** : {name}\n├── **Extention** : {MR}\n├── **Resolution** : {raw_text2}\n├── **Url** : `Kya karega URL dekh ke  BSDK 👻👻`\n├── **Thumbnail** : `{input6.text}`\n├── **Bot Made By** : "
+                    Show = f"✈️ 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 ✈️\n\n┠ 📈 Total Links = {len(links)}\n┠ 💥 Currently On = {str(count).zfill(3)}\n\n**📩 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐈𝐍𝐆 📩**\n\n**🧚🏻‍♂️ Title** : {name}\n├── **Extention** : {MR}\n├── **Resolution** : {raw_text2}\n├── **Url** : `Kya karega URL dekh ke 👻👻`\n├── **Thumbnail** : `{input6.text}`\n├── **Bot Made By** : "
                     prog = await m.reply_text(Show)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
